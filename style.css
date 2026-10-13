@@ -100,7 +100,7 @@ a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 .card ul, .card ol { margin: 0; padding-left: 24px; }
 .card li + li { margin-top: 6px; }
 .cv-row + .cv-row { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--rule); }
-.education-list { display: grid; gap: 26px; }
+.education-list { display: grid; gap: 14px; }
 .education-row {
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
