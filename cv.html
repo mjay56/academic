@@ -26,7 +26,7 @@
     <div class="container page-shell">
       <h1 class="page-title">Curriculum Vitae</h1>
 
-      <section class="card" aria-labelledby="cv-main">
+      <section class="card cv-card" aria-labelledby="cv-main">
         <div class="cv-row">
           <h2 id="cv-main">Name</h2>
           <p>Minje Kim</p>
@@ -46,9 +46,15 @@
 
         <div class="cv-row">
           <h2>Education</h2>
-          <ul>
-            <li>B.A. in International Commerce, Soongsil University <span class="small-note">(expected February 2027)</span></li>
-          </ul>
+          <div class="education-list">
+            <div class="education-row">
+              <span class="education-degree">B.A. in International Commerce, Soongsil University, Seoul, Korea</span>
+              <time class="education-year" datetime="2027">2027</time>
+            </div>
+            <!-- For a future degree, copy the entire .education-row block above,
+                 update the degree text, and replace both instances of 2027
+                 with the new graduation year. The year stays right-aligned. -->
+          </div>
         </div>
 
         <div class="cv-row">

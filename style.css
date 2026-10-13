@@ -2,10 +2,10 @@
   --bg: #232a4a;
   --bg-soft: #2b3359;
   --panel: rgba(255,255,255,0.03);
-  --text: #f5eedf;
-  --text-soft: #e4d8bf;
-  --rule: rgba(245, 238, 223, 0.18);
-  --rule-strong: rgba(245, 238, 223, 0.34);
+  --text: #fcfaf4;
+  --text-soft: #fcfaf4;
+  --rule: rgba(252, 250, 244, 0.18);
+  --rule-strong: rgba(252, 250, 244, 0.34);
   --petal: #fffdf6;
   --centre: #ebdca2;
   --centre-deep: #ceb76f;
@@ -99,11 +99,32 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
 .card ul, .card ol { margin: 0; padding-left: 22px; }
 .card li + li { margin-top: 6px; }
 .cv-row + .cv-row { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--rule); }
-.small-note { font-style: italic; color: var(--text-soft); }
+/* Keep the year column near the qualification rather than at the edge of the CV card.
+   The column remains reusable and aligned for additional degrees. */
+.education-list { display: inline-block; max-width: 100%; }
+.education-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5ch;
+  gap: 20px;
+  align-items: baseline;
+  font-size: 17px;
+  color: var(--text);
+  font-style: normal;
+}
+.education-degree { min-width: 0; }
+.education-year {
+  justify-self: end;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-style: normal;
+}
+/* CV text remains roman, even when reused markup contains emphasis. */
+.cv-card, .cv-card * { font-style: normal; }
 .placeholder {
   min-height: 220px; display: flex; align-items: center;
 }
-.placeholder p { font-style: italic; margin: 0; }
+.placeholder p { font-style: normal; margin: 0; }
 
 .site-footer { border-top: 1px solid var(--rule); }
 .footer-inner {
@@ -138,7 +159,8 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
   .intro-right p { font-size: 19px; line-height: 1.7; }
   .daisy-svg { width: 195px; }
   .card { padding: 24px 22px; }
-  .card p, .card li { font-size: 16px; }
+  .card p, .card li, .education-row { font-size: 16px; }
+  .education-row { grid-template-columns: minmax(0, 1fr) 4.5ch; gap: 14px; }
   .footer-inner {
     grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 8px; padding-block: 18px 24px;
   }
