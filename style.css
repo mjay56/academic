@@ -126,8 +126,8 @@ a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 .education-list { display: grid; gap: 14px; }
 .education-row {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
-  column-gap: 15px;
+  grid-template-columns: 48px minmax(0, 1fr);
+  column-gap: 8px;
   align-items: start;
 }
 .education-year { grid-column: 1; white-space: nowrap; text-align: left; }
@@ -184,7 +184,7 @@ a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
   .dropcap { font-size: 63px; line-height: 0.72; padding-right: 0.10em; padding-top: 0.02em; }
   .card { padding: 24px 22px; }
   .card p, .card li { font-size: 16px; }
-  .education-row { grid-template-columns: 44px minmax(0, 1fr); column-gap: 10px; }
+  .education-row { grid-template-columns: 39px minmax(0, 1fr); column-gap: 5px; }
   .footer-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 8px; padding-block: 18px 24px; }
   .footer-centre, .footer-right { justify-self: center; }
 }
