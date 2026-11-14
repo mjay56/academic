@@ -61,18 +61,23 @@ a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 }
 .daisy-svg { width: min(100%, 332px); height: auto; overflow: visible; }
 .daisy-flower { color: var(--text); }
-.petal-ring { transform-origin: 110px 110px; transition: transform .25s ease; }
-/* Hover to rotate on PCs, tap to toggle on touch devices. */
-@media (hover: hover) and (pointer: fine) {
-  .daisy-wrap:not(.touch-mode):hover .petal-ring,
-  .daisy-wrap:not(.touch-mode):focus-visible .petal-ring { animation: petal-spin 6s linear infinite; }
-}
-/* On touch, the animation pauses in its current position after the next tap. */
-.daisy-wrap.has-started .petal-ring {
+/* Keep the animation timeline attached even while paused, so a tap stops
+   the petals at their current angle rather than resetting them. */
+.petal-ring {
+  transform-origin: 110px 110px;
   animation: petal-spin 6s linear infinite;
   animation-play-state: paused;
 }
-.daisy-wrap.has-started.is-spinning .petal-ring { animation-play-state: running; }
+/* Desktop: rotate only while the mouse is over the flower. */
+@media (hover: hover) and (pointer: fine) {
+  .daisy-wrap:not(.touch-mode):hover .petal-ring {
+    animation-play-state: running;
+  }
+}
+/* Touch: ignore the persistent browser hover state; taps control the class. */
+.daisy-wrap.touch-mode.is-spinning .petal-ring {
+  animation-play-state: running;
+}
 @keyframes petal-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .intro-right p,
 .card p,
@@ -190,5 +195,8 @@ a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .main-nav a, .petal-ring, .back-to-top { transition: none; animation: none !important; }
+  .main-nav a, .back-to-top { transition: none; animation: none !important; }
+  /* Suppress automatic hover motion; an explicit tap may still start the petals. */
+  .petal-ring { animation-play-state: paused; }
+  .daisy-wrap.touch-mode.is-spinning .petal-ring { animation-play-state: running; }
 }

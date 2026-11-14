@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#232a4a">
   <meta name="description" content="Academic homepage of Minje Kim.">
-  <link rel="stylesheet" href="./style.css?v=white-cards-20261114">
+  <link rel="stylesheet" href="./style.css?v=daisy-touch-fix-20261114">
   <title>Minje Kim | Academic Homepage</title>
 </head>
 <body>
@@ -64,6 +64,36 @@
       <div class="footer-right"><a class="back-to-top" href="#top" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V4M5 11l7-7 7 7"/></svg></a></div>
     </div>
   </footer>
-  <script src="./script.js?v=touch-daisy-20261114" defer></script>
+  <script>
+    // Independent of script.js so a cached JavaScript file cannot break touch control.
+    const yearElement = document.getElementById('year');
+    if (yearElement) yearElement.textContent = String(new Date().getFullYear());
+
+    const daisy = document.querySelector('.daisy-wrap');
+    if (daisy) {
+      const touchEnvironment = window.matchMedia('(hover: none), (pointer: coarse)');
+
+      // Mark actual touch or pen input, including on hybrid laptops.
+      daisy.addEventListener('pointerdown', (event) => {
+        if (event.pointerType === 'touch' || event.pointerType === 'pen') {
+          daisy.classList.add('touch-mode');
+        } else if (event.pointerType === 'mouse' && !touchEnvironment.matches) {
+          daisy.classList.remove('touch-mode', 'is-spinning');
+          daisy.setAttribute('aria-pressed', 'false');
+        }
+      });
+
+      daisy.addEventListener('click', (event) => {
+        // A touch tap fires a click on the button in mobile browsers.
+        // Keyboard activation is also supported without a mouse.
+        const fromTouch = touchEnvironment.matches || daisy.classList.contains('touch-mode');
+        if (!fromTouch && event.detail !== 0) return;
+
+        daisy.classList.add('touch-mode');
+        const spinning = daisy.classList.toggle('is-spinning');
+        daisy.setAttribute('aria-pressed', String(spinning));
+      });
+    }
+  </script>
 </body>
 </html>
