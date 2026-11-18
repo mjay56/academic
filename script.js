@@ -1,27 +1,25 @@
-// Keep the footer year current.
-const yearElement = document.getElementById('year');
+// Update the copyright year.
+const yearElement = document.querySelector('#year');
 if (yearElement) yearElement.textContent = String(new Date().getFullYear());
 
-// Use mouse hover on desktop, but tap-to-toggle on mobile/touch screens.
-const daisy = document.querySelector('.daisy-wrap');
+// Desktop: CSS hover. Touch devices: first tap rotates, second tap pauses.
+const daisy = document.querySelector('.daisy-button');
 if (daisy) {
-  const touchLayout = window.matchMedia('(hover: none), (pointer: coarse)');
-  let lastInputWasTouch = false;
-
-  daisy.addEventListener('pointerdown', (event) => {
+  const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)');
+  daisy.addEventListener('pointerdown', event => {
     if (event.pointerType === 'touch' || event.pointerType === 'pen') {
-      lastInputWasTouch = true;
       daisy.classList.add('touch-mode');
-    } else {
-      lastInputWasTouch = false;
-      daisy.classList.remove('touch-mode');
+    } else if (event.pointerType === 'mouse' && !touchDevice.matches) {
+      daisy.classList.remove('touch-mode', 'is-spinning');
+      daisy.setAttribute('aria-pressed', 'false');
     }
   });
-
-  daisy.addEventListener('click', () => {
-    if (!lastInputWasTouch && !touchLayout.matches && navigator.maxTouchPoints === 0) return;
-    daisy.classList.add('has-started');
-    const spinning = daisy.classList.toggle('is-spinning');
-    daisy.setAttribute('aria-pressed', String(spinning));
+  daisy.addEventListener('click', event => {
+    const touchInput = touchDevice.matches || daisy.classList.contains('touch-mode');
+    // Keyboard users may also toggle the animation.
+    if (!touchInput && event.detail !== 0) return;
+    daisy.classList.add('touch-mode');
+    const active = daisy.classList.toggle('is-spinning');
+    daisy.setAttribute('aria-pressed', String(active));
   });
 }

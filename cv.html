@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#232a4a">
-  <meta name="description" content="CV of Minje Kim.">
-  <link rel="stylesheet" href="./style.css?v=cv-yeargap-half-20261114">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Curriculum Vitae of Minje Kim.">
+  <link rel="stylesheet" href="./style.css?v=oxford-wine-20261118-v1">
   <title>Minje Kim | CV</title>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="./index.html" class="brand" aria-label="Minje Kim home"><span class="brand-name">Minje Kim</span></a>
+      <a class="brand" href="./index.html" aria-label="Minje Kim — Home">Minje Kim</a>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="./cv.html" aria-current="page">CV</a>
         <a href="./research.html">Research</a>
@@ -21,58 +21,77 @@
       </nav>
     </div>
   </header>
-
   <main id="main" class="page-main">
-    <div class="container page-shell">
-      <h1 class="page-title">Curriculum Vitae</h1>
-      <section class="card cv-card" aria-labelledby="cv-main">
-        <div class="cv-row">
-          <h2 id="cv-main">Contact</h2>
-          <p><a href="mailto:mjaykim56@gmail.com">mjaykim56[at]gmail.com</a></p>
-        </div>
-        <div class="cv-row">
-          <h2>Current Position</h2>
-          <p class="affiliation-lines">MA Student<br>
+    <div class="container page-container">
+      <div class="page-heading">
+        <h1>Curriculum Vitae</h1>
+      </div>
+      <div class="cv-sections">
+        <section class="cv-section" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Contact</h2>
+          <div class="section-body">
+            <p><a class="contact-email" href="mailto:mjaykim56@gmail.com">mjaykim56[at]gmail.com</a></p>
+          </div>
+        </section>
+
+        <section class="cv-section" aria-labelledby="position-heading">
+          <h2 id="position-heading">Current Position</h2>
+          <div class="section-body">
+            <p>MA Student<br>
             Department of International Trade<br>
             Soongsil University</p>
-        </div>
-        <div class="cv-row">
-          <h2>Education</h2>
-          <div class="education-list">
-            <div class="education-row">
-              <time class="education-year" datetime="2027">2027</time>
-              <span class="education-degree">B.A. in International Commerce, Soongsil University, Seoul, Korea</span>
-            </div>
-            <div class="education-row">
-              <time class="education-year" datetime="2021">2021</time>
-              <span class="education-degree">Pangok High School, Namyangju, Korea</span>
-            </div>
-            <!-- Copy an education-row to add further degrees. -->
           </div>
-        </div>
-        <div class="cv-row">
-          <h2>Research Interest</h2>
-          <ul>
-            <li>Law and Practice of International Transactions</li>
-            <li>Trade Finance and Guarantees</li>
-            <li>Shipping and Marine Insurance</li>
-          </ul>
-        </div>
-        <div class="cv-row">
-          <h2>Qualification</h2>
-          <div class="qualification-row education-row">
-            <time class="education-year" datetime="2024">2024</time>
-            <div class="education-degree">
-              CFES II, Korea Banking Institute
-              <div>(Certificate of Foreign Exchange Specialist - type 2)</div>
+        </section>
+
+        <section class="cv-section" aria-labelledby="education-heading">
+          <h2 id="education-heading">Education</h2>
+          <div class="section-body year-list">
+            <div class="year-row">
+              <time class="year" datetime="2027">2027</time>
+              <div>B.A. in International Commerce, Soongsil University, Seoul, Korea</div>
+            </div>
+            <div class="year-row">
+              <time class="year" datetime="2021">2021</time>
+              <div>Pangok High School, Namyangju, Korea</div>
+            </div>
+            <!-- To add a degree, duplicate a .year-row and edit the year and description. -->
+          </div>
+        </section>
+
+        <section class="cv-section" aria-labelledby="interests-heading">
+          <h2 id="interests-heading">Research Interest</h2>
+          <div class="section-body">
+            <ul class="research-list">
+              <li>Law and Practice of International Transactions</li>
+              <li>Trade Finance and Guarantees</li>
+              <li>Shipping and Marine Insurance</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cv-section" aria-labelledby="qualification-heading">
+          <h2 id="qualification-heading">Qualification</h2>
+          <div class="section-body year-list">
+            <div class="year-row">
+              <time class="year" datetime="2024">2024</time>
+              <div>CFES II, Korea Banking Institute
+                <div class="qualification-note">(Certificate of Foreign Exchange Specialist - type 2)</div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </main>
-
-  <footer class="site-footer"><div class="container footer-inner"><div></div><div class="footer-centre">© <span id="year">2026</span> Minje Kim</div><div class="footer-right"><a class="back-to-top" href="#top" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V4M5 11l7-7 7 7"/></svg></a></div></div></footer>
-  <script src="./script.js" defer></script>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-spacer" aria-hidden="true"></span>
+      <span class="footer-copyright">© <span id="year">2026</span> Minje Kim</span>
+      <a class="back-to-top" href="#top" aria-label="Back to top" title="Back to top">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V4M5 11l7-7 7 7"/></svg>
+      </a>
+    </div>
+  </footer>
+  <script src="./script.js?v=oxford-wine-20261118-v1" defer></script>
 </body>
 </html>
