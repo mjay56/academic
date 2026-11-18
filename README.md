@@ -1,27 +1,15 @@
-# Minje Kim — Academic Homepage (Oxford Wine)
+# Minje Kim — Oxford Wine Academic Homepage
 
-A static, responsive academic website designed for GitHub Pages. The entire site uses a white background, Times New Roman, black body text, and **Oxford Wine (#55212F)** for accents. No indigo is used.
+This is the complete GitHub Pages site, combining the Oxford Wine design and the latest updates:
 
-## Pages
+- All four interior-page titles (Curriculum Vitae / Research / Project / Archive) have a smaller, centrally aligned type size: 36px max (29px on mobile).
+- White background, black Times New Roman body text, Oxford Wine `#55212F` accents. No indigo.
+- No title underline; CV sections and details preserved.
+- Small black square bullets in Research Interest.
+- Daisy interactive rotation: desktop hover; mobile tap to start/pause, retaining the angle.
 
-- `index.html` — intro with interactive daisy
-- `cv.html` — CV (contact, current position, education, research interests, qualification)
-- `research.html`, `project.html`, `archive.html` — deliberately blank pages
-- `style.css` — shared design
-- `script.js` — automatic copyright year + touch toggle for daisy
+## Publishing
 
-## Interaction
+Upload the **seven website files** (`index.html`, `cv.html`, `research.html`, `project.html`, `archive.html`, `style.css`, `script.js`) to the **root** of your GitHub `academic` repository and commit. `README.md` is optional.
 
-- Desktop: hover the daisy to rotate its petals.
-- Mobile/touch: tap once to rotate; tap again to pause without resetting.
-- Users who have enabled reduced-motion settings will not see animation.
-
-## Publish on GitHub Pages
-
-Extract the ZIP file, then upload the files **inside this folder** to the repository root at https://github.com/mjay56/academic and commit the changes. Existing GitHub Pages settings (branch `main`, folder `/(root)`) do not need to be changed.
-
-The deployed address is https://mjay56.github.io/academic/.
-
-## Editing
-
-The CV text is in `cv.html`. The colours, typography, and layout are in `style.css`. For more dated qualifications or education items, duplicate a `.year-row` and update its year and content.
+See `index.html` for the intro and `cv.html` for CV data.

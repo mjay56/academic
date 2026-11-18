@@ -76,16 +76,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   cursor: pointer; touch-action: manipulation;
 }
 .daisy-svg { width: 100%; height: auto; display: block; overflow: visible; }
-.petal-ring {
-  transform-origin: 110px 110px;
-  animation: spin-petals 6s linear infinite;
-  animation-play-state: paused;
-}
-@media (hover: hover) and (pointer: fine) {
-  .daisy-button:not(.touch-mode):hover .petal-ring { animation-play-state: running; }
-}
-.daisy-button.touch-mode.is-spinning .petal-ring { animation-play-state: running; }
-@keyframes spin-petals { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* The petal ring is rotated by script.js using an SVG transform.
+   This avoids touch-hover conflicts and retains its exact angle when paused. */
+/* No CSS transform on the ring: its SVG transform attribute is updated by JavaScript. */
 .intro-paragraph {
   width: min(100%, 620px); margin: 46px auto 0;
   color: var(--ink); font-size: 19px; line-height: 1.53;
@@ -99,7 +92,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .page-container { max-width: 880px; }
 .page-heading { padding: 0; border: 0; text-align: center; margin-bottom: 36px; }
 .page-heading h1 {
-  margin: 0; color: var(--accent); font-size: clamp(38px, 4vw, 49px);
+  margin: 0; color: var(--accent); font-size: clamp(31px, 2.8vw, 36px);
   font-weight: 400; line-height: 1.18; letter-spacing: -.015em;
 }
 .cv-section {
@@ -182,7 +175,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .intro-email { margin-top: 30px; font-size: 16px; }
   .page-main { min-height: calc(100svh - 186px); padding: 41px 0 68px; }
   .page-heading { margin-bottom: 26px; }
-  .page-heading h1 { font-size: 36px; }
+  .page-heading h1 { font-size: 29px; }
   .cv-section { padding: 17px 0 19px; }
   .cv-section h2 { font-size: 21px; }
   .section-body { font-size: 17px; }
@@ -196,6 +189,5 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .petal-ring { animation: none !important; }
   .main-nav a, .back-to-top { transition: none; }
 }
