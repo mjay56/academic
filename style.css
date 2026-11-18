@@ -125,10 +125,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   gap: 8px; align-items: start;
 }
 .year { color: var(--ink); font-variant-numeric: tabular-nums; }
-.research-list { margin: 0; padding-left: 22px; }
+.research-list { margin: 0; padding-left: 22px; list-style-type: square; }
 .research-list li { padding-left: 0; }
 .research-list li + li { margin-top: 4px; }
-.research-list li::marker { color: var(--accent); }
+.research-list li::marker { color: #171717; font-size: .72em; }
 .qualification-note { font-size: 16px; margin-top: 1px; }
 .empty-page { min-height: 320px; }
 
